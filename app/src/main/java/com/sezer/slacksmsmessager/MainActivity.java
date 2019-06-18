@@ -1,6 +1,7 @@
 package com.sezer.slacksmsmessager;
 
 import android.Manifest;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,22 +11,25 @@ import com.sezer.slacksmsmessager.permissions.PermissionHandler;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = getApplicationContext();
 
-        askForPermissions();
+        PermissionHandler.askForPermissions(this);
         registerBroadcastReceivers();
-    }
-
-    private void askForPermissions(){
-        // Asks for Recieve SMS Permission
-        PermissionHandler.askForPermission(this, Manifest.permission.RECEIVE_SMS);
+        String str = getResources().getString(R.string.app_name);
     }
 
     private void registerBroadcastReceivers(){
         BroadcastRecieverHandler.registerSMSRecieveBroadcast(this);
+    }
+
+    public static Context getAppContext() {
+        return context;
     }
 
     @Override
@@ -35,4 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // Unregister all broadcast recievers
         BroadcastRecieverHandler.unregisterRecievers(this);
     }
+
+
 }

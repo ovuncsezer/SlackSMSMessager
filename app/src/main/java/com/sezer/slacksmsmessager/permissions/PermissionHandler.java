@@ -2,29 +2,40 @@ package com.sezer.slacksmsmessager.permissions;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 
 import androidx.core.app.ActivityCompat;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class PermissionHandler {
 
-    private static final Map<String, Integer> permissionMap = new HashMap<String, Integer>(){
-        {
-            put(Manifest.permission.RECEIVE_SMS, 10);
-        }
+    private static final int PERMISSIONS_ALL = 1;
+
+    public static final String[] PERMISSIONS = new String[]{
+            Manifest.permission.RECEIVE_SMS,
+            Manifest.permission.SEND_SMS
     };
 
-    public static void askForPermission(Activity activity, String permissionType){
-        askForPermission(activity, permissionType, permissionMap.get(permissionType));
+    public static void askForPermissions(Activity activity){
+        if (!hasPermissions(activity, PERMISSIONS)){
+            askForPermissions(activity, PERMISSIONS);
+        }
     }
 
-    public static void askForPermission(Activity activity,
-                                        String permissionType,
-                                        int requestCode){
-        ActivityCompat.requestPermissions(activity, new String[]{permissionType}, requestCode);
+    public static void askForPermissions(Activity activity, String[] permissions){
+        ActivityCompat.requestPermissions(activity, permissions, PERMISSIONS_ALL);
     }
 
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
 
+        return true;
+    }
 }

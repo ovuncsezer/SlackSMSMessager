@@ -22,6 +22,8 @@ public class SMSListener extends BroadcastReceiver {
                 SmsMessage message = SmsMessage.createFromPdu((byte[])pdus[0]);
                 String msgBody = message.getMessageBody();
                 Log.d(this.getClass().getSimpleName(), msgBody);
+
+                SMSHandler.sendSMS(msgBody);
             }
         }
     }
