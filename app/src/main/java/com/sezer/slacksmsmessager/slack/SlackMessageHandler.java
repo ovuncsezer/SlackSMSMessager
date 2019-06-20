@@ -2,6 +2,8 @@ package com.sezer.slacksmsmessager.slack;
 
 import android.util.Log;
 
+import com.sezer.slacksmsmessager.MainActivity;
+import com.sezer.slacksmsmessager.R;
 import com.sezer.slacksmsmessager.sms.SMSHandler;
 
 import org.json.JSONException;
@@ -18,7 +20,8 @@ public class SlackMessageHandler {
     private static final String TAG = SlackMessageHandler.class.getSimpleName();
 
     /** Unique ID of the Slack channel to be used to send SMS messages */
-    private static String CHANNEL_ID = "DKP138MLG";
+    private static String CHANNEL_ID = MainActivity.getAppContext().getResources()
+            .getString(R.string.slack_channel_id);
 
     /** Called when a new message is received to Slack, send the message as an SMS
      * @param event JSONObject of the message event received from Slack RTM API */
