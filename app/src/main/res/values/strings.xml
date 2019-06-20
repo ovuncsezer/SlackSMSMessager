@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SlackSMSMessager</string>
+    <string name="app_name">Cute Messager</string>
+    <string name="slack_oauth_token">xoxb-507116504512-670884366839-3bcSRCFcU3DfRt8x8iCbWYeN</string>
+    <string name="phone_numbers">00905549907601</string>
 </resources>
