@@ -1,6 +1,8 @@
 # SlackSMSMessager
-A Android app to send SMS messages to Slack and Slack messages as SMS.
+An Android app to send SMS messages to Slack and Slack messages as SMS.
 
-Wrote this app to be able to communicate with my lovely girlfriend since I was going to be in a place without a smartphone but with an ancient cell phone from 90's. My only communication channel was SMS so I had to wrote an app that which sends the message received from an SMS to Slack and vice versa. This way, we were able to communicate with my girlfriend and we missed each othe less :)
+This app is written to be able to communicate with my lovely girlfriend since I was going to be in a place without a smartphone but with an ancient cell phone from 90's. My only communication channel was SMS so I wrote this app which sends the message received from an SMS to Slack using Slack RTM API and vice verse. This way, we were able to communicate with my girlfriend and we missed each other less :)
 
+The Android code of the app sends received SMS to a REST API of the server side. The application receives the messages sent from Slack via push notifications then which it is converted a SMS message within the app.
 
+The server side code is reachable here: https://github.com/ovuncsezer/SlackSMSMessagerServer
