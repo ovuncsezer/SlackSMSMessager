@@ -8,7 +8,8 @@ The Android code of the app sends received SMS to a REST API of the server side.
 The server side code is reachable here: https://github.com/ovuncsezer/SlackSMSMessagerServer
 
 **For Installation**
-1. Change the tokens inside strings.xml accordingly.
-2. Build the application
+1. Application server should be deployed. 
+2. Update the fields inside strings.xml file accordingly.
+2. Build the application.
 3. Install the application to an Android device.
-4. Keep the app open
+4. Keep the app working at background.
