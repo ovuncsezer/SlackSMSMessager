@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Cute Messager</string>
-    <string name="slack_oauth_token"></string>
-    <string name="slack_channel_id"></string>
-    <string name="phone_numbers"></string>
+    <string name="slack_oauth_token">xoxb-507116504512-659844106642-Av1LeR7MKw9hIpOb84qaKjni</string>
+    <string name="slack_channel_id">CKK9UJT09</string>
+    <string name="phone_numbers">+905519814770</string>
+    <string name="server_api_url">https://slacksmsmessager.herokuapp.com/api/</string>
 </resources>
